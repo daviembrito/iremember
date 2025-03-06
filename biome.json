@@ -34,7 +34,7 @@
     "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 2,
-    "lineWidth": 100,
+    "lineWidth": 80,
     "attributePosition": "auto"
   },
   "organizeImports": {
@@ -71,7 +71,7 @@
       }
     },
     {
-      "include": ["src/App.tsx", "vite.config.ts", "tailwind.config.ts"],
+      "include": ["src/App.tsx", "vite.config.ts", "tailwind.config.js", "postcss.config.js"],
       "linter": {
         "rules": {
           "style": {
