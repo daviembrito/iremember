@@ -41,7 +41,11 @@
     "enabled": true
   },
   "javascript": {
-    "jsxRuntime": "transparent"
+    "jsxRuntime": "transparent",
+    "formatter": {
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "single"
+    }
   },
   "json": {
     "formatter": {
