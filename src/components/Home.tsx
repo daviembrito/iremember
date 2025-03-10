@@ -2,7 +2,7 @@ import { Button } from './util/Button';
 
 export function Home() {
   return (
-    <div className='flex flex-col items-center justify-center gap-80 min-h-screen bg-outer-50'>
+    <div className='flex flex-col items-center justify-center gap-80 min-h-screen'>
       <header>
         <h1 className='font-extrabold text-5xl'>iRemember</h1>
       </header>
