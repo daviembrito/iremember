@@ -29,6 +29,9 @@
       "suspicious": {
         "all": true,
         "noReactSpecificProps": "off"
+      },
+      "a11y": {
+        "useKeyWithClickEvents": "off"
       }
     }
   },
