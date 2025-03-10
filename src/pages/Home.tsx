@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import { Button } from '../components/Button';
 
 export function Home() {
@@ -8,7 +9,9 @@ export function Home() {
       </header>
 
       <main>
-        <Button>Play</Button>
+        <Link to='/game'>
+          <Button>Play</Button>
+        </Link>
       </main>
 
       <footer>
