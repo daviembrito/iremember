@@ -27,8 +27,8 @@
         "useImportExtensions": "off"
       },
       "suspicious": {
-        "all": true,
-        "noReactSpecificProps": "off"
+        "noReactSpecificProps": "off",
+        "noArrayIndexKey": "off"
       },
       "a11y": {
         "useKeyWithClickEvents": "off"
