@@ -19,14 +19,20 @@ export function Game() {
     images.flatMap((image) => [new Card({ image }), new Card({ image })]),
   );
 
+  const [isWaiting, setIsWaiting] = useState(false);
   const [flippedCards, setFlippedCards] = useState<number[]>([]);
 
   const handleCardFlip = (id: number) => {
+    if (isWaiting) {
+      return;
+    }
+
     if (flippedCards.length === 0) {
       setFlippedCards([id]);
       return;
     }
 
+    setIsWaiting(true);
     const firstCardId = flippedCards[0];
 
     if (cards[firstCardId].isEqual(cards[id])) {
@@ -35,11 +41,13 @@ export function Game() {
 
       setFlippedCards([]);
       setCards([...cards]);
+      setIsWaiting(false);
     } else {
       setFlippedCards([firstCardId, id]);
 
       setTimeout(() => {
         setFlippedCards([]);
+        setIsWaiting(false);
       }, TIME_TO_FLIP_BACK);
     }
   };
