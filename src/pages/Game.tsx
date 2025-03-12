@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { CardFlipper } from '../components/CardFlipper';
 import { Card } from '../types/Card';
+import { shuffle } from '../utils/shuffle';
 
 // 1 second
 const TIME_TO_FLIP_BACK = 1000;
@@ -15,9 +16,13 @@ export function Game() {
     'https://images.unsplash.com/photo-1591181520189-abcb0735c65d',
   ];
 
-  const [cards, setCards] = useState(() =>
-    images.flatMap((image) => [new Card({ image }), new Card({ image })]),
-  );
+  const [cards, setCards] = useState(() => {
+    const cardPairs = images.flatMap((image) => [
+      new Card({ image }),
+      new Card({ image }),
+    ]);
+    return shuffle(cardPairs);
+  });
 
   const [isWaiting, setIsWaiting] = useState(false);
   const [flippedCards, setFlippedCards] = useState<number[]>([]);
