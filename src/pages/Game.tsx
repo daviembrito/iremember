@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { CardFlipper } from '../components/CardFlipper';
+import { Button } from '../components/Button';
 import { Card } from '../types/Card';
 import { shuffle } from '../utils/shuffle';
 
@@ -26,6 +27,9 @@ export function Game() {
 
   const [isWaiting, setIsWaiting] = useState(false);
   const [flippedCards, setFlippedCards] = useState<number[]>([]);
+  const [matchedPairs, setMatchedPairs] = useState(0);
+
+  const isGameComplete = matchedPairs === images.length;
 
   const handleCardFlip = (id: number) => {
     if (isWaiting) {
@@ -44,6 +48,7 @@ export function Game() {
       cards[firstCardId].match();
       cards[id].match();
 
+      setMatchedPairs((prev) => prev + 1);
       setFlippedCards([]);
       setCards([...cards]);
       setIsWaiting(false);
@@ -55,6 +60,16 @@ export function Game() {
         setIsWaiting(false);
       }, TIME_TO_FLIP_BACK);
     }
+  };
+
+  const resetGame = () => {
+    const cardPairs = images.flatMap((image) => [
+      new Card({ image }),
+      new Card({ image }),
+    ]);
+    setCards(shuffle(cardPairs));
+    setFlippedCards([]);
+    setMatchedPairs(0);
   };
 
   return (
@@ -70,6 +85,16 @@ export function Game() {
           />
         ))}
       </div>
+
+      {isGameComplete && (
+        <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10'>
+          <div className='bg-outer-50 p-8 rounded-lg shadow-lg max-w-md text-center'>
+            <h2 className='text-2xl font-bold mb-4'>Congratulations! 🎉</h2>
+            <p className='mb-6'>You've successfully matched all the cards!</p>
+            <Button onClick={resetGame}>Play Again</Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
