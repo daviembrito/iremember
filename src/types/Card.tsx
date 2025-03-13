@@ -9,8 +9,8 @@ type CardParams = {
 };
 
 export class Card {
-  public image: string;
-  public state: CardState;
+  private image: string;
+  private state: CardState;
 
   constructor({ image }: CardParams) {
     this.image = image;
@@ -32,11 +32,11 @@ export class Card {
     return this.image === card.image;
   }
 
-  isFlipped() {
-    return this.state === CardState.Flipped;
-  }
-
   isMatched() {
     return this.state === CardState.Matched;
+  }
+
+  getImage() {
+    return this.image;
   }
 }
