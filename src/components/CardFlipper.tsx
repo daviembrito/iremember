@@ -16,16 +16,6 @@ export function CardFlipper({ id, card, isFlipped, onFlip }: CardFlipperProps) {
     onFlip(id);
   }
 
-  const getBorderColor = () => {
-    if (card.isMatched()) {
-      return 'border-outer-300';
-    }
-    if (isFlipped) {
-      return 'border-amber-200';
-    }
-    return '';
-  };
-
   return (
     <div
       onClick={flipCard}
@@ -34,11 +24,11 @@ export function CardFlipper({ id, card, isFlipped, onFlip }: CardFlipperProps) {
       {isFlipped || card.isMatched() ? (
         <img
           src={card.getImage()}
-          className={`w-full h-full rounded-lg border-2 border-solid ${getBorderColor()}`}
+          className={`w-full h-full rounded-lg border-2 border-solid ${card.isMatched() ? 'border-outer-300' : ''}`}
           alt='Card'
         />
       ) : (
-        <div className='w-full h-full bg-gray-300 rounded-lg' />
+        <div className='w-full h-full bg-gray-300 rounded-lg hover:border-2 hover:border-solid hover:border-amber-200' />
       )}
     </div>
   );
