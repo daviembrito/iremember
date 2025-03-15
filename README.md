@@ -38,4 +38,13 @@ $ pnpm dev
 - Open the browser and access localhost:5173
 ## Examples
 
+![image](https://github.com/user-attachments/assets/cd0199a2-64b4-4535-b800-f592c2cf9aa6)
+
+![image](https://github.com/user-attachments/assets/97390c2c-c1da-4ab0-b645-5cccfd813d5b)
+
+![image](https://github.com/user-attachments/assets/56419667-afce-4016-80a8-c5062c8be3e4)
+
+
+
+
 
